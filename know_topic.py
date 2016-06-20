@@ -38,11 +38,28 @@ topic='<strong>(.*)</strong>'
 meaning='<p>(.*)</p>'
 href='href="(/topic/.*)">'
 
-topic_list = re.findall(rb'topic',html,re.S)
-i = 0
-while(i<21):
-	for each in topic_list:
-	    ws.cell(row = i,column= 2).value=each
-	    i += 1
+
+topic_list = re.findall(topic,html.text)
+meaning_list = re.findall(meaning,html.text)
+href_list = re.findall(href,html.text)
+
+
+j=2
+for each in topic_list:
+	ws.cell(row = j,column= 1).value=j-1
+	ws.cell(row = j,column= 2).value=each
+	j+=1
+i=2
+for each in meaning_list:
+	ws.cell(row = i,column= 3).value=each
+	i += 1
+i=2
+for each in href_list:
+	ws.cell(row = i,column= 4).value='https://www.zhihu.com'+each
+	i += 1
+	if i==j:
+		print(i,j)
+		break
+
 wb.save(filename = dest_filename)	    
-printf("OK")
+print("OK")

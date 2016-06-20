@@ -5,7 +5,7 @@
 
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 <meta name="renderer" content="webkit" />
-<meta http-equiv="X-ZA-Response-Id" content="0cd845993d664f83b1a5e13952b85c47">
+<meta http-equiv="X-ZA-Response-Id" content="63b85cdd102e44bab5df0cbbeb59bc3c">
 
 <title>话题广场 - 知乎</title>
 
@@ -14,7 +14,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 <meta http-equiv="mobile-agent" content="format=html5;url=https://www.zhihu.com/topics">
-<meta id="znonce" name="znonce" content="8014bfbd0e194741b76d4063411f910a">
+<meta id="znonce" name="znonce" content="c01876d1f06a45fe8191ec3d0d6a015d">
 
 
 
@@ -505,7 +505,7 @@
 <div class="content">
 <a href="/topic/19563625" target="_blank" data-tip="t$b$19563625">天文学</a>
 <div class="meta">
-<span>164501 人关注</span>
+<span>164661 人关注</span>
 
 </div>
 </div>
@@ -521,7 +521,7 @@
 <div class="content">
 <a href="/topic/19571876" target="_blank" data-tip="t$b$19571876">权力的游戏（美剧）</a>
 <div class="meta">
-<span>112965 人关注</span>
+<span>113037 人关注</span>
 
 </div>
 </div>
@@ -537,7 +537,7 @@
 <div class="content">
 <a href="/topic/19661617" target="_blank" data-tip="t$b$19661617">育婴</a>
 <div class="meta">
-<span>1633 人关注</span>
+<span>1637 人关注</span>
 
 </div>
 </div>
@@ -585,7 +585,7 @@
 <script type="text/json" class="json-inline" data-name="permissions">[]</script>
 
 
-<script type="text/json" class="json-inline" data-name="ga_vars">{"user_created":0,"now":1466403689000,"abtest_mask":"------------------------------","user_attr":[0,0,0,"-","-"],"user_hash":0}</script>
+<script type="text/json" class="json-inline" data-name="ga_vars">{"user_created":0,"now":1466409638000,"abtest_mask":"------------------------------","user_attr":[0,0,0,"-","-"],"user_hash":0}</script>
 
 <script type="text/json" class="json-inline" data-name="ra-urls">{"Report":"https:\/\/static.zhihu.com\/static\/revved\/-\/apps\/Report.7b207896.js","Community":"https:\/\/static.zhihu.com\/static\/revved\/-\/apps\/Community.97844271.js","common":"https:\/\/static.zhihu.com\/static\/revved\/-\/apps\/common.33e6b712.js","CommentApp":"https:\/\/static.zhihu.com\/static\/revved\/-\/apps\/CommentApp.02a04f26.js"}</script>
 
@@ -599,8 +599,8 @@
 <script src="https://static.zhihu.com/static/revved/-/js/closure/page-misc.bbd75e49.js"></script>
 <meta name="entry" content="ZH.entryTS" data-module-id="page-misc">
 
-<script type="text/zscript" znonce="8014bfbd0e194741b76d4063411f910a"></script>
+<script type="text/zscript" znonce="c01876d1f06a45fe8191ec3d0d6a015d"></script>
 
-<input type="hidden" name="_xsrf" value="3b16a360977cd16876256092daaee80e"/>
+<input type="hidden" name="_xsrf" value="05fa51d970909515e28c36cf5809c644"/>
 </body>
 </html>
