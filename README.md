@@ -20,6 +20,7 @@ zhihu_topic_spider
 + python3.5
 
 ####功能模块
-+zhihu_topic.py  循环获取知乎话题
-+zhihu_more.py   抓取后面18条话题
++ zhihu_topic.py  循环获取知乎话题
++ zhihu_more.py   抓取后面18条话题
+
 
