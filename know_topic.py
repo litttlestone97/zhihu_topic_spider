@@ -1,4 +1,4 @@
-#抓取知乎话题
+#抓取知乎话题,单页
 
 #-*-coding:utf8-*-
 import requests
