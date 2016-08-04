@@ -1,7 +1,7 @@
 #-*-coding:utf8-*-
 '''
 功能描述：
-+ 抓取知乎话题,单页
++ 抓取知乎主话题,单页
 
 编写日期：20160702
 编写人：little_Stone
@@ -28,26 +28,22 @@ fp.close()
  	#创建一个workbook
     #sheet=wb.add_sheet("xlwt3数据测试表")
 wb=Workbook()
-dest_filename = 'know_topic.xlsx'
+dest_filename = 'main_topic.xlsx'
 #第一个sheet是ws
 ws = wb.worksheets[0]
 #ws=wb.create_sheet()
 #设置ws的名称
-ws.title = u"话题列表"
+ws.title = u"主话题列表"
 ws.cell(row = 1,column= 1).value='编号'
 ws.cell(row = 1,column= 2).value='话题'
-ws.cell(row = 1,column= 3).value='简介'
-ws.cell(row = 1,column= 4).value='链接' 
+ws.cell(row = 1,column= 3).value='话题ID'
 
-#循环取strong/href/p/ href="/topic/
-topic='<strong>(.*)</strong>'
-meaning='<p>(.*)</p>'
-href='href="(/topic/.*)">'
+topic='<a href="#(.*)">'
+topic_id='data-id="(.*)"><a href="#'
 
 
 topic_list = re.findall(topic,html.text)
-meaning_list = re.findall(meaning,html.text)
-href_list = re.findall(href,html.text)
+topic_id_list = re.findall(topic_id,html.text) 
 
 
 j=2
@@ -56,16 +52,9 @@ for each in topic_list:
 	ws.cell(row = j,column= 2).value=each
 	j+=1
 i=2
-for each in meaning_list:
+for each in topic_id_list:
 	ws.cell(row = i,column= 3).value=each
 	i += 1
-i=2
-for each in href_list:
-	ws.cell(row = i,column= 4).value='https://www.zhihu.com'+each
-	i += 1
-	if i==j:
-		print(i,j)
-		break
 
 wb.save(filename = dest_filename)	    
-print("OK")
+print("main_topic over")

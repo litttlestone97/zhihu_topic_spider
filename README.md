@@ -20,7 +20,14 @@ zhihu_topic_spider
 + python3.5
 
 ####功能模块
-+ zhihu_topic.py  循环获取知乎话题
-+ zhihu_more.py   抓取后面18条话题
-+ 
 
+######function.py     存储函数
++ topic_more        抓取后面18条话题
++ topic_all         根据输入链接，更新话题描述，话题关注人数 
+
+######主程序
++ get_topic.py     循环获取知乎子话题(topic_more)
++ get_main_topic.py 抓取知乎主话题,单页
++ get_topic_from_root.py      通过节点关系，从根节点发散获取话题(未开始)
++ get_topic_all      刷新子话题信息(topic_all)
++ get_followers      获取话题关注人列表
