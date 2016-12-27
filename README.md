@@ -11,6 +11,7 @@ zhihu_topic_spider
 ####日期
 + 计划开始：2016-06-20
 + 计划结束：2016-08-01（anyway）
++ 20161227
 
 ####说明
 + 仅用于python抓包的学习
@@ -31,3 +32,11 @@ zhihu_topic_spider
 + get_topic_from_root.py      通过节点关系，从根节点发散获取话题(未开始)
 + get_topic_all      刷新子话题信息(topic_all)
 + get_followers      获取话题关注人列表
+
+
+---
+2.53.6 selenium
+
+
+---
+https://www.zhihu.com/topics

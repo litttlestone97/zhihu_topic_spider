@@ -15,6 +15,38 @@ import urllib.request
 from openpyxl import load_workbook
 from openpyxl import Workbook 
 
+import requests,time
+from bs4 import BeautifulSoup
+import urllib
+import urllib.parse
+import urllib.error
+import urllib.request
+from openpyxl import load_workbook
+from openpyxl import Workbook 
+
+#验证码获取
+def get_captcha(data):
+    with open('captcha.gif','wb') as fp:
+        fp.write(data)
+    return input('输入验证码：')
+ 
+#登陆
+def login(username,password,oncaptcha):
+    sessiona = requests.Session()
+    headers = {'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:47.0) Gecko/20100101 Firefox/47.0'}
+    _xsrf = BeautifulSoup(sessiona.get('https://www.zhihu.com/#signin',headers=headers).content,'html.parser').find('input',attrs={'name':'_xsrf'}).get('value')
+    captcha_content = sessiona.get('https://www.zhihu.com/captcha.gif?r=%d&type=login'%(time.time()*1000),headers=headers).content
+    data = {
+        "_xsrf":_xsrf,
+        "email":username,
+        "password":password,
+        "remember_me":True,
+        "captcha":oncaptcha(captcha_content)
+    }
+    resp = sessiona.post('https://www.zhihu.com/login/email',data,headers=headers).content
+    print(resp)
+    return sessiona 
+
 
 #根据输入链接，更新话题描述，话题关注人数
 def topic_all(href):
