@@ -24,7 +24,6 @@ fp.close()
 
 
 #爬取话题标题及连接
-
  	#创建一个workbook
     #sheet=wb.add_sheet("xlwt3数据测试表")
 wb=Workbook()

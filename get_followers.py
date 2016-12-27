@@ -21,35 +21,57 @@ import re
 import urllib.request
 from openpyxl import load_workbook
 from openpyxl import Workbook 
+from function import * 
 
- 
-COOKIES={
-    '_xsrf':r'820c3d4709c7a72f52949a64f5cef0aa',
-    'z_c0':'Mi4wQUFBQTRic2pBQUFBUUlKWWtZOFBDeGNBQUFCaEFsVk42SEtKV0FEdGRIREFjTWxPR0N1dVhIcElaSXpSeG51ZkVR|1482810858|3a200ace1a0340f144f7264874a2d318119248ea'
-}
+user_name = input("请输入用户名：")
+password = input("请输入密码：")
+sessiona=login(user_name,password,get_captcha)
+
+topic='20052088'
+start='1467008592'
 
 #获取连接
-url = 'https://www.zhihu.com/topic/20052088/followers'
-#user_agent = {'User-Agent':'Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2272.118 Safari/537.36'}
+url = 'https://www.zhihu.com/topic/'+topic+'/followers'
 user_agent = 'Mozilla/5.0 (iPhone; CPU iPhone OS 6_0 like Mac OS X) AppleWebKit/536.26 (KHTML, like Gecko) Version/6.0 Mobile/10A403 Safari/8536.25'
 user_agent = {'User-Agent':user_agent}
 
-data = {'offset':'80','start':'1467355107','_xsrf':'820c3d4709c7a72f52949a64f5cef0aa'}
-#data = json.dumps(data)
+
+#获取20条数据
+data = {'offset':'100','start':start,'_xsrf':'820c3d4709c7a72f52949a64f5cef0aa'}
 data = urllib.parse.urlencode(data)
 data = data.encode('utf-8') #编译   
+#html = sessiona.get(url=url,data=data,headers=user_agent)
 
-COOKIES = dict(cookies_are='working')
-html = requests.get(url=url,data=data,headers=user_agent,cookies=COOKIES) 
-#写入文档
-fp = open('try2.txt','w',encoding='utf-8')
-fp.write(html.text)
-fp.close()
+#抽取此20条数据
+try:
+	request = urllib.request.Request(url=url,data=data) 
+	response = urllib.request.urlopen(request)
+    #解析json
+	result = json.loads(response.read().decode('utf-8'))
+    
+	if number%100 ==0  :
+		print ('正在写入第',number,'条数据')            
+	content = result['msg']
 
-'''
-response = urllib.request.urlopen(request)
-#解析json
-result = json.loads(response.read().decode('utf-8'))
-        
-print (result['msg'])        
-'''
+	step=len(content)
+    #print('step',step) #验证步长
+    #匹配链接
+    #循环取strong/href/p/ href="/topic/
+
+	'''
+    topic='<strong>(.*)</strong>'
+    meaning='<p>(.*)</p>'
+    href='href="(/topic/.*)">'
+
+    href_list = re.compile('href="(/topic/.*)">')
+    meaning_list = re.compile('<p>(.*)</p>')
+    topic_list = re.compile('<strong>(.*)</strong>')
+    '''
+
+	#写入文档
+	fp = open('try2.txt','w',encoding='utf-8')
+	fp.write(content.text)
+	fp.close()
+
+except urllib.error.URLError as e:
+	print (e.code)

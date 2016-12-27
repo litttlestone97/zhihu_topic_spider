@@ -10,17 +10,12 @@ import urllib.error
 import requests
 import json
 import re
-#from bs4 import BeautifulSoup
 import urllib.request
 from openpyxl import load_workbook
 from openpyxl import Workbook 
 
 import requests,time
 from bs4 import BeautifulSoup
-import urllib
-import urllib.parse
-import urllib.error
-import urllib.request
 from openpyxl import load_workbook
 from openpyxl import Workbook 
 
@@ -45,7 +40,8 @@ def login(username,password,oncaptcha):
     }
     resp = sessiona.post('https://www.zhihu.com/login/email',data,headers=headers).content
     print(resp)
-    return sessiona 
+    s = requests.session()
+    return s 
 
 
 #根据输入链接，更新话题描述，话题关注人数

@@ -39,7 +39,7 @@ if __name__ == "__main__":
     user_agent = 'Mozilla/5.0 (iPhone; CPU iPhone OS 6_0 like Mac OS X) AppleWebKit/536.26 (KHTML, like Gecko) Version/6.0 Mobile/10A403 Safari/8536.25'
     user_agent = {'User-Agent':user_agent}
 
-    data = {'offset':'80','start':'1466787246','_xsrf':'820c3d4709c7a72f52949a64f5cef0aa'}
+    data = {'offset':'100','start':'1466928869','_xsrf':'820c3d4709c7a72f52949a64f5cef0aa'}
     #data = json.dumps(data)
     data = urllib.parse.urlencode(data)
     data = data.encode('utf-8') #编译   
